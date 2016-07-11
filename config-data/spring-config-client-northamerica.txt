@@ -1,0 +1,2 @@
+---
+lucky-product: hot-dog
