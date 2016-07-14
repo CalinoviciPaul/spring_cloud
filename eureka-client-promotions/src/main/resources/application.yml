@@ -1,4 +1,20 @@
 ---
+server:
+  port: ${PORT:${SERVER_PORT:0}}
 
+---
+spring:
+  profiles: food
+products: Canned salmon, Pork chops, Grandma's cookies
+
+---
+spring:
+  profiles: electronics
+products: not-so-smart TV, iron, vacuum-cleaner
+
+---
+spring:
+  profiles: promotions
 server:
   port: 8020
+products: does not apply

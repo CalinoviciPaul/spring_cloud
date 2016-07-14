@@ -3,3 +3,23 @@ spring:
   cloud:
     config:
       uri: http://localhost:8001
+
+---
+spring:
+  profiles: food
+  application:
+    name: eureka-client-food
+
+---
+spring:
+  profiles: electronics
+  application:
+    name: eureka-client-electronics
+
+---
+spring:
+  profiles: promotions
+  application:
+      name: eureka-client-promotions
+server:
+  port: 8020
