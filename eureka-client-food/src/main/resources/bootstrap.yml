@@ -1,3 +1,6 @@
 spring:
   application:
     name: eureka-client-food
+  cloud:
+    config:
+      uri: http://localhost:8001
