@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PromotionalProducts {
 
     @Value("${products}") String products;
+    /*String products ="tablet, PC";*/
 
 
     @RequestMapping("/")

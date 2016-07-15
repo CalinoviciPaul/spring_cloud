@@ -4,6 +4,11 @@ spring:
     config:
       uri: http://localhost:8001
 
+# Allow Eureka to recognize two apps of the same type on the same host as separate instances:
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
 ---
 spring:
   profiles: food
