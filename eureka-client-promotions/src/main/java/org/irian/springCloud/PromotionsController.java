@@ -3,6 +3,7 @@ package org.irian.springCloud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,8 +17,11 @@ import java.util.List;
  */
 @RestController
 public class PromotionsController {
+   /* @Autowired
+    DiscoveryClient discoveryClient;*/
+
     @Autowired
-    DiscoveryClient discoveryClient;
+    LoadBalancerClient loadBalancerClient;
 
 
     @RequestMapping("/promotions")
@@ -28,7 +32,7 @@ public class PromotionsController {
                 ;
     }
 
-    public String getProduct(String service) {
+  /*  public String getProduct(String service) {
         List<ServiceInstance> list = discoveryClient.getInstances(service);
         if (list != null && list.size() > 0 ) {
             URI uri = list.get(0).getUri();
@@ -37,6 +41,11 @@ public class PromotionsController {
             }
         }
         return null;
+    }*/
+
+    public String getProduct(String serviceName){
+        ServiceInstance serviceInstance = loadBalancerClient.choose(serviceName);
+        return (new RestTemplate()).getForObject(serviceInstance.getUri(),String.class);
     }
 
 
