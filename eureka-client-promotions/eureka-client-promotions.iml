@@ -122,5 +122,10 @@
     <orderEntry type="library" name="Maven: com.netflix.ribbon:ribbon-loadbalancer:2.2.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.netflix.netflix-commons:netflix-statistics:0.1.1" level="project" />
     <orderEntry type="library" name="Maven: io.reactivex:rxjava:1.1.5" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-feign:1.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: com.netflix.feign:feign-core:8.16.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.jvnet:animal-sniffer-annotation:1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.netflix.feign:feign-slf4j:8.16.2" level="project" />
+    <orderEntry type="library" name="Maven: com.netflix.feign:feign-hystrix:8.16.2" level="project" />
   </component>
 </module>

@@ -1,5 +1,6 @@
 package org.irian.springCloud;
 
+import org.irian.springCloud.services.PromotionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -18,18 +19,18 @@ import java.util.List;
 @RestController
 public class PromotionsController {
    /* @Autowired
-    DiscoveryClient discoveryClient;*/
+    DiscoveryClient discoveryClient;*//*
 
     @Autowired
-    LoadBalancerClient loadBalancerClient;
+    LoadBalancerClient loadBalancerClient;*/
+
+    @Autowired
+    PromotionsService promotionsService;
 
 
     @RequestMapping("/promotions")
     public @ResponseBody String getProducts() {
-        return
-                getProduct("eureka-client-electronics") + " "
-                        + getProduct("eureka-client-food")
-                ;
+        return promotionsService.getPromotions();
     }
 
   /*  public String getProduct(String service) {
@@ -43,10 +44,10 @@ public class PromotionsController {
         return null;
     }*/
 
-    public String getProduct(String serviceName){
+   /* public String getProduct(String serviceName){
         ServiceInstance serviceInstance = loadBalancerClient.choose(serviceName);
         return (new RestTemplate()).getForObject(serviceInstance.getUri(),String.class);
-    }
+    }*/
 
 
 }
