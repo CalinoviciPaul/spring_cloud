@@ -2,6 +2,8 @@ package org.irian.springCloud.services;
 
 import org.irian.springCloud.dao.DaoFactory;
 import org.irian.springCloud.dao.ProductDao;
+import org.irian.springCloud.feignClients.ElectronicsClient;
+import org.irian.springCloud.feignClients.FoodClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -12,20 +14,34 @@ import org.springframework.stereotype.Service;
 @Service
 public class PromotionsServiceImpl implements PromotionsService {
 
-    ProductDao foodDao;
+    /*ProductDao foodDao;
 
-    ProductDao electronicsDao;
+    ProductDao electronicsDao;*/
 
-    @Override
+    @Autowired
+    FoodClient foodClient;
+    @Autowired
+    ElectronicsClient electronicsClient;
+
+   /* @Override
     public String getPromotions() {
         String header = "Here are the promotional products: ";
         return String.format("%s\n Food:%s\n Electronics%s",
                 header,
                 foodDao.getProduct(),
                 electronicsDao.getProduct());
+    }  */
+
+    @Override
+    public String getPromotions() {
+        String header = "Here are the promotional products: ";
+        return String.format("%s\n Food:%s\n Electronics%s",
+                header,
+                foodClient.getProduct(),
+                electronicsClient.getProduct());
     }
 
-    @Autowired
+  /*  @Autowired
     @Qualifier(DaoFactory.FOOD_DAO)
     public void setFoodDao(ProductDao foodDao) {
         this.foodDao = foodDao;
@@ -35,5 +51,5 @@ public class PromotionsServiceImpl implements PromotionsService {
     @Qualifier(DaoFactory.ELECTRONICS_DAO)
     public void setElectronicsDao(ProductDao electronicsDao) {
         this.electronicsDao = electronicsDao;
-    }
+    }*/
 }
