@@ -1,5 +1,6 @@
 package org.irian.springCloud.services;
 
+import com.netflix.discovery.converters.Auto;
 import org.irian.springCloud.dao.DaoFactory;
 import org.irian.springCloud.dao.ProductDao;
 import org.irian.springCloud.feignClients.ElectronicsClient;
@@ -18,10 +19,13 @@ public class PromotionsServiceImpl implements PromotionsService {
 
     ProductDao electronicsDao;*/
 
-    @Autowired
+   /* @Autowired
     FoodClient foodClient;
     @Autowired
-    ElectronicsClient electronicsClient;
+    ElectronicsClient electronicsClient;*/
+
+    @Autowired
+    ProductsService productsService;
 
    /* @Override
     public String getPromotions() {
@@ -37,8 +41,8 @@ public class PromotionsServiceImpl implements PromotionsService {
         String header = "Here are the promotional products: ";
         return String.format("%s\n Food:%s\n Electronics%s",
                 header,
-                foodClient.getProduct(),
-                electronicsClient.getProduct());
+                productsService.getFoodProduct(),
+                productsService.getElectronicsProduct());
     }
 
   /*  @Autowired
