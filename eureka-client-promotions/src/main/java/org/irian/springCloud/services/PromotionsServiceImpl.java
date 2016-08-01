@@ -39,7 +39,7 @@ public class PromotionsServiceImpl implements PromotionsService {
     @Override
     public String getPromotions() {
         String header = "Here are the promotional products: ";
-        return String.format("%s\\n Food:%s\\n Electronics: %s",
+        return String.format("%s\n Food:%s\n Electronics: %s",
                 header,
                 productsService.getFoodProduct(),
                 productsService.getElectronicsProduct());
