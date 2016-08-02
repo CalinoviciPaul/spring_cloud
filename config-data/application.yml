@@ -7,7 +7,7 @@ eureka:
 ---
 spring:
   profiles: food
-products: Canned salmon, Pork chops, Grandma's cookies
+products: Bananas
 
 ---
 spring:
