@@ -13,4 +13,3 @@ products: Canned salmon, Pork chops, Grandma's cookies
 spring:
   profiles: electronics
 products: not-so-smart TV, iron, vacuum-cleaner
-s
