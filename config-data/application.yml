@@ -7,9 +7,11 @@ eureka:
 ---
 spring:
   profiles: food
-products: Bananas
+configProducts:  
+  products: Bananas
 
 ---
 spring:
   profiles: electronics
-products: not-so-smart TV, iron, vacuum-cleaner
+configProducts:  
+  products: not-so-smart TV, iron, vacuum-cleaner
